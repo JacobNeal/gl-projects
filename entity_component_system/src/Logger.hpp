@@ -2,21 +2,29 @@
 #define LOGGER_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
+
+#define LOGGER_CONTEXT_WIDTH 48
 
 class Logger
 {
     public:
-        void log(std::string message)
+        void log(std::string logMessage, std::string contextFile="", std::string contextMethod="", int contextLine=-1)
         {
-            m_logMessages.push_back(message);
+            std::string logContext = contextFile + "(" + std::to_string(contextLine) + ")::" + contextMethod + ":";
+            m_logMessages.push_back(logMessage);
+            m_logContexts.push_back(logContext);
         }
 
         friend std::ostream & operator<< (std::ostream & output, const Logger & logger)
         {
-            for (std::string message : logger.m_logMessages)
-                output << message << '\n';
+            for (unsigned int count = 0; count < logger.m_logMessages.size(); ++count)
+            {
+                output << std::left << std::setw(LOGGER_CONTEXT_WIDTH) 
+                       << logger.m_logContexts[count] << logger.m_logMessages[count] << '\n';
+            }
 
             return output;
         }
@@ -26,11 +34,12 @@ class Logger
          * Data members
         ****************************************/
         std::vector<std::string> m_logMessages;
+        std::vector<std::string> m_logContexts;
 };
 
 // Create global logger
 extern Logger globalLogger;
 
-#define LOG(message) globalLogger.log(message)
+#define LOG(message) globalLogger.log(message, __FILE__, __func__, __LINE__)
 
 #endif

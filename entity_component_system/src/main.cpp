@@ -16,7 +16,7 @@ int main()
     entityManager.addComponentType<PositionComp>(ComponentType::Position);
 
     Bitmask entityMask;
-    entityMask.setBit(0);
+    entityMask.setBit((unsigned int)ComponentType::Position);
 
     entityManager.addEntity(entityMask);
 
