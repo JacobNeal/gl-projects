@@ -26,8 +26,8 @@ static char * testBitmaskSetBits()
 ****************************************/
 static char * testBitmaskMatches()
 {
-    Bitmask r_value(7);     // 00000011
-    mask.setMask(3);        // 00000111
+    mask.setMask(3);        // 00000011
+    Bitmask r_value(7);     // 00000111
 
     bool matches = mask.matches(r_value);
 

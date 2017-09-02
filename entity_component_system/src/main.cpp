@@ -4,6 +4,9 @@
 #include "SystemManager.hpp"
 #include "PositionComp.hpp"
 #include "Bitmask.hpp"
+#include "Logger.hpp"
+
+Logger globalLogger;
 
 int main()
 {
@@ -11,9 +14,16 @@ int main()
     EntityManager entityManager(&sysManager);
 
     entityManager.addComponentType<PositionComp>(ComponentType::Position);
-    entityManager.addEntity(Bitmask(0));
 
-    std::cout << "End of main...\n";
+    Bitmask entityMask;
+    entityMask.setBit(0);
+
+    entityManager.addEntity(entityMask);
+
+    LOG("End of main...\n");
+
+    std::cout << "----------------BEGIN LOG OUTPUT----------------\n" << globalLogger
+              << "-----------------END LOG OUTPUT-----------------\n";
 
     return 0;
 }

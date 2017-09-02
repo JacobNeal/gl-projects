@@ -5,17 +5,17 @@
 
 enum class ComponentType
 {
-    Position, Movable, Controller
+    Position=0, Movable, Controller
 };
 
 enum class SystemType
 {
-    Renderer, Movement, Control, State
+    Renderer=0, Movement, Control, State
 };
 
 enum class EventType
 {
-    MoveUp, MoveDown, MoveLeft, MoveRight
+    MoveUp=0, MoveDown, MoveLeft, MoveRight
 };
 
 #endif

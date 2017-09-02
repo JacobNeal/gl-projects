@@ -14,17 +14,17 @@ EntityManager::~EntityManager()
 
 void EntityManager::addEntity(Bitmask mask)
 {
-    std::cout << "Adding entity...\n";
+    LOG("Adding entity...");
 
     m_componentLock = true;
     m_entities.push_back(new Entity);
 
     for (unsigned int bit = 0; bit < NUM_COMPONENT_TYPES; ++bit)
     {
-        std::cout << "Checking bit: " << bit << '\n';
+        LOG("Checking bit: " + std::to_string(bit));
         if (mask.getBit(bit))
         {
-            std::cout << "Bit set for bit: " << bit << '\n';
+            LOG("Bit set for bit: " + std::to_string(bit));
             addComponent(m_entities.size() - 1, (ComponentType)bit);
         }
     }
@@ -69,10 +69,13 @@ bool EntityManager::addComponent(const unsigned int & entity, const ComponentTyp
         {
             Component * newComp = m_compFactory[compType]();
             m_entities[entity]->components.push_back(newComp);
+            m_entities[entity]->componentMask.setBit((unsigned int)compType);
             
             added = true;
         }
     }
+    else
+        LOG("Component is locked...");
 
     return added;
 }

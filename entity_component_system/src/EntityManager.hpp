@@ -11,6 +11,7 @@
 #include "Component.hpp"
 #include "Bitmask.hpp"
 #include "SystemManager.hpp"
+#include "Logger.hpp"
 
 class EntityManager
 {
