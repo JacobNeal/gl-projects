@@ -1,4 +1,4 @@
-## entity_component_system
+## entity_component_system (work in progress)
 
 The purpose of this project is to implement the entity component system pattern. This pattern allows entities to posses properties and functionality through composition, rather than inheritance.
 

@@ -3,19 +3,19 @@
 
 #define NUM_COMPONENT_TYPES 32
 
-enum class Component
+enum class ComponentType
 {
-    Position=0, Movable, Controller
+    Position, Movable, Controller
 };
 
-enum class System
+enum class SystemType
 {
-    Renderer=0, Movement, Control, State
+    Renderer, Movement, Control, State
 };
 
-enum class EntityEvent
+enum class EventType
 {
-    Moving_Up, Moving_Down, Moving_Left, Moving_Right
+    MoveUp, MoveDown, MoveLeft, MoveRight
 };
 
 #endif

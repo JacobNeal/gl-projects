@@ -1,23 +1,32 @@
 CXX = clang++
-CXXFLAGS = -I/Users/SrirachaAnt/Documents/glm -Wall -c
+CXXFLAGS = -I/Users/SrirachaAnt/Documents/glm -Wall -c -std=c++14
 LDFLAGS = -lglfw -lglew -framework OpenGL
-EXE = improved_window
+EXE = entity_component_system
 
 all: $(EXE)
 
-$(EXE): main.o window.o triangle.o shader.o
-	$(CXX) $(LDFLAGS) main.o window.o triangle.o shader.o -o $@
+$(EXE): main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o
+	$(CXX) $(LDFLAGS) main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o -o $@
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-window.o: Window.cpp
+Window.o: Window.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-triangle.o: Triangle.cpp
+SystemManager.o: SystemManager.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-shader.o: Shader.cpp
+System.o: System.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+EntityManager.o: EntityManager.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+Component.o: Component.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+Bitmask.o: Bitmask.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
