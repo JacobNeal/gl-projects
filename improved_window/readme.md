@@ -4,5 +4,5 @@ The purpose of this project is to expand on our previous project (basic_window) 
 
 In this example a simple triangle is drawn within the rendered window.
 
-To build this project there is an included Makefile within the src folder, though you'll probably have to update the compilation and linking flags (CXX, CXXFLAGS, LDFLAGS) to reference the dependencies on OpenGL, and GLFW.
+To build this project there is an included Makefile within the src folder, though you'll probably have to update the compilation and linking flags (CXX, CXXFLAGS, LDFLAGS) to reference the dependencies on OpenGL, GLFW and GLM.
 
