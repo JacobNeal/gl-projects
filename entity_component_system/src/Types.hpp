@@ -5,7 +5,7 @@
 
 enum class ComponentType
 {
-    Position=0, Movable, Controller
+    Position=0, Shape, Transformable, Controller
 };
 
 enum class SystemType

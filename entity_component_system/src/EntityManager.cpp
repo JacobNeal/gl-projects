@@ -14,22 +14,41 @@ EntityManager::~EntityManager()
 
 void EntityManager::addEntity(Bitmask mask)
 {
-    LOG("Adding entity...");
+    LOG("Adding new entity...");
 
-    m_componentLock = true;
-    m_entities.push_back(new Entity);
+    std::string logMessage = "Added new entity with bitmask: ";
+    char logBitmask[NUM_COMPONENT_TYPES + 1] = {'\0'};
+
+    Entity * entity = new Entity;
+    m_entities.push_back(entity);
 
     for (unsigned int bit = 0; bit < NUM_COMPONENT_TYPES; ++bit)
     {
-        LOG("Checking bit: " + std::to_string(bit));
-        if (mask.getBit(bit))
+        bool bitSet = mask.getBit(bit);
+
+        if (bitSet)
         {
-            LOG("Bit set for bit: " + std::to_string(bit));
-            addComponent(m_entities.size() - 1, (ComponentType)bit);
+            auto citer = m_compFactory.find((ComponentType)bit);
+            
+            if (citer != m_compFactory.end())
+            {                    
+                Component * newComp = citer->second();
+                entity->components.push_back(newComp);
+                entity->componentMask.setBit(bit);
+            }
+            else
+                LOG("Can't determine how to instantiate ComponentType: " + std::to_string(bit));
+
+            logBitmask[NUM_COMPONENT_TYPES - bit - 1] = '1';
         }
+        else
+            logBitmask[NUM_COMPONENT_TYPES - bit - 1] = '0';
     }
 
     m_sysManager->addEntity(m_entities.back());
+    m_componentLock = true;
+
+    LOG(logMessage + logBitmask);
 }
 
 void EntityManager::addEntity(const std::string & entityFile)
@@ -65,7 +84,7 @@ bool EntityManager::addComponent(const unsigned int & entity, const ComponentTyp
     {
         auto citer = m_compFactory.find(compType);
 
-        if (hasComponent(entity, compType) && citer != m_compFactory.end())
+        if (!hasComponent(entity, compType) && citer != m_compFactory.end())
         {
             Component * newComp = m_compFactory[compType]();
             m_entities[entity]->components.push_back(newComp);
@@ -75,7 +94,7 @@ bool EntityManager::addComponent(const unsigned int & entity, const ComponentTyp
         }
     }
     else
-        LOG("Component is locked...");
+        LOG("Adding components is locked since entities have been added.");
 
     return added;
 }

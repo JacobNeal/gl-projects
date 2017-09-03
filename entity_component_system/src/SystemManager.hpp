@@ -3,10 +3,13 @@
 
 #include <vector>
 
+#include "Window.hpp"
 #include "Types.hpp"
 #include "System.hpp"
+#include "RenderSystem.hpp"
 #include "Entity.hpp"
 #include "Bitmask.hpp"
+#include "Logger.hpp"
 
 class SystemManager
 {
@@ -19,6 +22,9 @@ class SystemManager
         void clearEntities();
 
         void handleEvent(const EventType & event);
+
+        void render(Window * window);
+        void update(float elapsedTime);
 
     private:
         /****************************************

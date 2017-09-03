@@ -12,7 +12,8 @@
 class System
 {
     public:
-        System(const SystemType & type, const Bitmask & requirements);
+        System(const SystemType & type);
+        virtual ~System();
 
         bool addEntity(Entity * entity);
         bool removeEntity(Entity * entity);
@@ -20,6 +21,7 @@ class System
         void clearEntities();
 
         Bitmask getRequirements();
+        SystemType getType();
 
         virtual void update(float deltaTime) = 0;
         virtual void handleEvent(const EventType & event) = 0;

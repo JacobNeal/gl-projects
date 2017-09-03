@@ -1,8 +1,13 @@
 #include "System.hpp"
 
-System::System(const SystemType & type, const Bitmask & requirements)
-    : m_type(type), m_requirementMask(requirements)
+System::System(const SystemType & type)
+    : m_type(type)
 { }
+
+System::~System()
+{
+    clearEntities();
+}
 
 bool System::addEntity(Entity * entity)
 {
@@ -56,4 +61,9 @@ void System::clearEntities()
 Bitmask System::getRequirements()
 {
     return m_requirementMask;
+}
+
+SystemType System::getType()
+{
+    return m_type;
 }

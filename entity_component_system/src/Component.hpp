@@ -9,6 +9,7 @@ class Component
 {
     public:
         Component(const ComponentType & type);
+        virtual ~Component();
 
         ComponentType getType();
 

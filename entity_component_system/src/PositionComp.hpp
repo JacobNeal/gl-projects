@@ -5,15 +5,14 @@
 #include <glm/glm.hpp>
 
 #include "Component.hpp"
+#include "Logger.hpp"
 
 class PositionComp : public Component
 {
     public:
         PositionComp()
             : Component(ComponentType::Position), m_position(glm::vec3(0.0f, 0.0f, 0.0f))
-        {
-            std::cout << "In PositionComp constructor...\n";
-        }
+        { }
 
         glm::vec3 getPosition() const
         {

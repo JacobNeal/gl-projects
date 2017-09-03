@@ -5,8 +5,8 @@ EXE = entity_component_system
 
 all: $(EXE)
 
-$(EXE): main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o
-	$(CXX) $(LDFLAGS) main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o -o $@
+$(EXE): main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o Triangle.o Shader.o
+	$(CXX) $(LDFLAGS) main.o Window.o SystemManager.o System.o EntityManager.o Component.o Bitmask.o Triangle.o Shader.o -o $@
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
@@ -27,6 +27,12 @@ Component.o: Component.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 Bitmask.o: Bitmask.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+Triangle.o: Triangle.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+Shader.o: Shader.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
