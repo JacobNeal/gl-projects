@@ -5,6 +5,8 @@
 #include <string>
 #include <GL/glew.h>
 
+#include "Logger.hpp"
+
 class Shader
 {
     public:

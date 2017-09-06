@@ -12,11 +12,7 @@ Model::Model(std::vector<GLfloat> * vertexData, std::vector<GLuint> * indices)
 
     // Bind the vertex buffer object
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertexData->size(), &((*vertexData)[0]), GL_STATIC_DRAW);
-
-    LOG("(*vertexData)[0] = " + std::to_string((*vertexData)[0]));
-    LOG("Vertex count = " + std::to_string(m_vertexCount));
-    LOG("Vertex Stride = " + std::to_string(V_STRIDE));
+    glBufferData(GL_ARRAY_BUFFER, vertexData->size() * sizeof(GLfloat), &((*vertexData)[0]), GL_STATIC_DRAW);
 
     // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, V_STRIDE * sizeof(GLfloat), (GLvoid *)0);
@@ -77,7 +73,7 @@ void Model::draw()
     // Bind the vertex array object
     glBindVertexArray(m_VAO);
 
-    glDrawArrays(GL_TRIANGLES, 0, m_vertexCount);
+    glDrawArrays(GL_TRIANGLES, 0, m_vertexCount / V_STRIDE);
 
     // Unbind the vertex array object
     glBindVertexArray(0);

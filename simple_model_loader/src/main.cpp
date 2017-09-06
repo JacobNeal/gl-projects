@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "ModelLoader.hpp"
 #include "Model.hpp"
@@ -27,6 +28,15 @@ int main()
     }
 
     std::cout << LOGGER;
+
+    std::ofstream logFile("log.txt");
+
+    if (logFile.is_open())
+    {
+        logFile << LOGGER;
+
+        logFile.close();
+    }
 
     return 0;
 }

@@ -20,7 +20,7 @@ Window::Window(const char * title, unsigned int width, unsigned int height)
 
     if (m_window == nullptr)
     {
-        std::cout << "Failed to create the GLFW framework window.\n";
+        LOG("Failed to create the GLFW framework window.");
         glfwTerminate();
     }
 
@@ -33,7 +33,7 @@ Window::Window(const char * title, unsigned int width, unsigned int height)
     glewExperimental = GL_TRUE;
 
     if (glewInit() != GLEW_OK)
-        std::cout << "Failed to initialize GLEW.\n";
+        LOG("Failed to initialize GLEW.");
 
     // Tell OpenGL the size of the rendering window.
     glViewport(0, 0, width, height);

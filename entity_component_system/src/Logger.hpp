@@ -29,7 +29,7 @@ class Logger
 
         friend std::ostream & operator<< (std::ostream & output, const Logger & logger)
         {
-            std::cout << "----------------BEGIN LOG OUTPUT----------------\n";
+            output << "----------------BEGIN LOG OUTPUT----------------\n";
 
             for (unsigned int count = 0; count < logger.m_logMessages.size(); ++count)
             {
@@ -37,7 +37,7 @@ class Logger
                        << logger.m_logContexts[count] << logger.m_logMessages[count] << '\n';
             }
 
-            std::cout << "-----------------END LOG OUTPUT-----------------\n";
+            output << "-----------------END LOG OUTPUT-----------------\n";
 
             return output;
         }
@@ -55,5 +55,9 @@ class Logger
 extern Logger globalLogger;
 
 #define LOG(message) globalLogger.log(message, __FILE__, __func__, __LINE__)
+#define LOGGER globalLogger
+
+#define LOGGER_DECL Logger globalLogger;
+#define LOGGER_DECL_LIVE Logger globalLogger(true);
 
 #endif

@@ -26,8 +26,10 @@ void Shader::load(const char * vertexShaderSource, const char * fragmentShaderSo
     if (!success)
     {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "Error::Shader::Vertex::Compilation_Failed:\n" << infoLog << '\n';
+        LOG("Error::Shader::Vertex::Compilation_Failed:\n" + std::string(infoLog));
     }
+    else
+        LOG("Compiled vertex shader...");
 
     /****************************************
      * Compile the fragment shader
@@ -41,8 +43,10 @@ void Shader::load(const char * vertexShaderSource, const char * fragmentShaderSo
     if (!success)
     {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "Error::Shader::Fragment::Compilation_Failed:\n" << infoLog << '\n';
+        LOG("Error::Shader::Fragment::Compilation_Failed:\n" + std::string(infoLog));
     }
+    else
+        LOG("Compiled fragment shader...");
 
     /****************************************
      * Link the shaders to the program
@@ -57,8 +61,10 @@ void Shader::load(const char * vertexShaderSource, const char * fragmentShaderSo
     if (!success)
     {
         glGetProgramInfoLog(program, 512, NULL, infoLog);
-        std::cout << "Error::Shader::Program::Linking_Failed:\n" << infoLog << '\n';
+        LOG("Error::Shader::Program::Linking_Failed:\n" + std::string(infoLog));
     }
+    else
+        LOG("Linked shaders into shader program.");
 
     // Delete the shaders now that they have been linked to free memory
     glDeleteShader(vertexShader);

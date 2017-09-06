@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include "Drawable.hpp"
+#include "Logger.hpp"
 
 class Window
 {

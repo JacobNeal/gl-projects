@@ -3,7 +3,7 @@
 Model * ModelLoader::load(std::string filename)
 {
     std::vector<GLfloat> vertexData;
-    std::vector<GLuint>  indicies;
+    std::vector<GLuint>  indices;
 
     LOG("Loading " + filename);
 
@@ -32,22 +32,12 @@ Model * ModelLoader::load(std::string filename)
             {
                 std::copy(std::istream_iterator<GLuint>(buffer),
                           std::istream_iterator<GLuint>(),
-                          back_inserter(indicies));
+                          back_inserter(indices));
             }
         }
 
         file.close();
     }
 
-    LOG("Vertex Data");
-
-    for (GLfloat vfloat : vertexData)
-        LOG(std::to_string(vfloat));
-
-    LOG("Indicies");
-
-    for (GLuint index : indicies)
-        LOG(std::to_string(index));
-
-    return new Model(&vertexData, &indicies);
+    return new Model(&vertexData, &indices);
 }

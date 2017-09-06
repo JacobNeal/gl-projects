@@ -9,7 +9,7 @@
 #include "PositionComp.hpp"
 #include "ShapeComp.hpp"
 
-Logger globalLogger;
+LOGGER_DECL
 
 int main()
 {
@@ -40,7 +40,7 @@ int main()
         window.endDraw();
     }
 
-    std::cout << globalLogger;
+    std::cout << LOGGER;
 
     return 0;
 }

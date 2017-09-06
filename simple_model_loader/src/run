@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "--------------------CLEANING BUILD--------------------"
+make clean
+
+echo "\n\n-----------------------BUILDING-----------------------"
+make
+
+echo "\n\n"
+
+./simple_model_loader
