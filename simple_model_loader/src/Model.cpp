@@ -1,10 +1,11 @@
 #include "Model.hpp"
 
 Model::Model(std::vector<GLfloat> * vertexData, std::vector<GLuint> * indices)
-    : m_vertexCount(vertexData->size()), m_position(0.0, 0.0, 0.0)
+    : m_vertexCount(vertexData->size()), m_indexCount(indices->size()), m_position(0.0, 0.0, 0.0)
 {
     // Generate the VBO / VAO
     glGenBuffers(1, &m_VBO);
+    glGenBuffers(1, &m_EBO);
     glGenVertexArrays(1, &m_VAO);
 
     // Bind the vertex array object
@@ -13,6 +14,9 @@ Model::Model(std::vector<GLfloat> * vertexData, std::vector<GLuint> * indices)
     // Bind the vertex buffer object
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, vertexData->size() * sizeof(GLfloat), &((*vertexData)[0]), GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices->size() * sizeof(GLuint), &((*indices)[0]), GL_STATIC_DRAW);
 
     // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, V_STRIDE * sizeof(GLfloat), (GLvoid *)0);
@@ -65,6 +69,11 @@ GLuint Model::getVertexCount()
     return m_vertexCount;
 }
 
+GLuint Model::getIndexCount()
+{
+    return m_indexCount;
+}
+
 void Model::draw()
 {
     // Use the shader program
@@ -73,7 +82,8 @@ void Model::draw()
     // Bind the vertex array object
     glBindVertexArray(m_VAO);
 
-    glDrawArrays(GL_TRIANGLES, 0, m_vertexCount / V_STRIDE);
+    //glDrawArrays(GL_TRIANGLES, 0, m_vertexCount / V_STRIDE);
+    glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, 0);
 
     // Unbind the vertex array object
     glBindVertexArray(0);

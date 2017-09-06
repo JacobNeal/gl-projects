@@ -20,6 +20,7 @@ class Model : public Drawable
         ~Model();
 
         GLuint getVertexCount();
+        GLuint getIndexCount();
 
         virtual void draw();
 
@@ -29,7 +30,9 @@ class Model : public Drawable
         ****************************************/
         GLuint    m_VBO;
         GLuint    m_VAO;
+        GLuint    m_EBO;
         GLuint    m_vertexCount;
+        GLuint    m_indexCount;
 
         glm::vec3 m_position;
         

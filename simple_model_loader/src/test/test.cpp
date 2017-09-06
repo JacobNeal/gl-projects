@@ -21,6 +21,8 @@ static char * testModelLoader()
 
     mu_assert("testModelLoader Failed: No vertices were loaded from the test model.\n", testModel->getVertexCount() > 0);
 
+    mu_assert("testModelLoader Failed: No indices were loaded from the test model.\n", testModel->getIndexCount() > 0);
+
     return 0;
 }
 
