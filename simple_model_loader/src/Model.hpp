@@ -23,6 +23,8 @@ class Model : public Drawable
         GLuint getIndexCount();
 
         virtual void draw();
+        virtual GLuint getShaderProgram();
+        virtual glm::vec3 getPosition();
 
     private:
         /****************************************

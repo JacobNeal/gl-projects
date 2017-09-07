@@ -1,7 +1,7 @@
 #include "Window.hpp"
 
 Window::Window(const char * title, unsigned int width, unsigned int height)
-    : m_deltaTime(0.0f), m_lastFrameTime(0.0f)
+    : m_deltaTime(0.0f), m_lastFrameTime(0.0f), m_width(width), m_height(height)
 {
     /****************************************
      * Set up GLFW
@@ -42,10 +42,13 @@ Window::Window(const char * title, unsigned int width, unsigned int height)
 
     // Set the GLFW function pointer for key events
     glfwSetKeyCallback(m_window, keyCallback);
+
+    m_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
 }
 
 Window::~Window()
 {
+    delete m_camera;
     glfwTerminate();
 }
 
@@ -71,6 +74,18 @@ void Window::update()
 
 void Window::draw(Drawable * drawable)
 {
+    // Set up matrix transformations
+    glm::mat4 view = m_camera->getViewMatrix();
+    glUniformMatrix4fv(glGetUniformLocation(drawable->getShaderProgram(), "view"), 1, GL_FALSE, glm::value_ptr(view));
+
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)m_width / (float)m_height, 0.1f, 100.0f);
+    glUniformMatrix4fv(glGetUniformLocation(drawable->getShaderProgram(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+    glm::mat4 model;
+    model = glm::translate(model, drawable->getPosition());
+    model = glm::rotate(model, glm::radians((GLfloat)glfwGetTime() * 20.0f), glm::vec3(1.0f, 0.3f, 0.5f));
+    glUniformMatrix4fv(glGetUniformLocation(drawable->getShaderProgram(), "model"), 1, GL_FALSE, glm::value_ptr(model));
+
     drawable->draw();
 }
 

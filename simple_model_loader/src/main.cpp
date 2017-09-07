@@ -14,7 +14,7 @@ int main()
 
     ModelLoader modelLoader;
 
-    Model * model = modelLoader.load("test.MODEL");
+    Model * model = modelLoader.load("cube.MODEL");
 
     while (!window.isDone())
     {

@@ -41,17 +41,23 @@ Model::Model(std::vector<GLfloat> * vertexData, std::vector<GLuint> * indices)
         "layout (location=0) in vec3 aPos;\n"
         "layout (location=1) in vec3 aColor;\n"
         "layout (location=2) in vec3 aNorm;\n"
+        "out vec3 fColor;\n"
+        "uniform mat4 model;\n"
+        "uniform mat4 view;\n"
+        "uniform mat4 projection;\n"
         "void main()\n"
         "{\n"
-        "    gl_Position = vec4(aPos, 1.0f);\n"
+        "    gl_Position = projection * view * model * vec4(aPos, 1.0f);\n"
+        "    fColor = aColor;\n"
         "}\0";
 
     const char * fragmentShaderSource =
         "#version 330 core\n"
+        "in vec3 fColor;\n"
         "out vec4 FragColor;\n"
         "void main()\n"
         "{\n"
-        "    FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+        "    FragColor = vec4(fColor, 1.0f);\n"
         "}\0";
 
     m_shader.load(vertexShaderSource, fragmentShaderSource);
@@ -76,6 +82,8 @@ GLuint Model::getIndexCount()
 
 void Model::draw()
 {
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
     // Use the shader program
     m_shader.use();
 
@@ -87,4 +95,14 @@ void Model::draw()
 
     // Unbind the vertex array object
     glBindVertexArray(0);
+}
+
+GLuint Model::getShaderProgram()
+{
+    return m_shader.program;
+}
+
+glm::vec3 Model::getPosition()
+{
+    return m_position;
 }

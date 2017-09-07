@@ -1,5 +1,5 @@
 ----------------BEGIN LOG OUTPUT----------------
-ModelLoader.cpp(8)::load:                       Loading test.MODEL
+ModelLoader.cpp(8)::load:                       Loading cube.MODEL
 Shader.cpp(32)::load:                           Compiled vertex shader...
 Shader.cpp(49)::load:                           Compiled fragment shader...
 Shader.cpp(67)::load:                           Linked shaders into shader program.

@@ -4,10 +4,13 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
 
 #include "Drawable.hpp"
+#include "Camera.hpp"
 #include "Logger.hpp"
 
 class Window
@@ -37,7 +40,10 @@ class Window
         
         GLfloat      m_deltaTime;
         GLfloat      m_lastFrameTime;
+        GLuint       m_width;
+        GLuint       m_height;
 
+        Camera *     m_camera;
 };
 
 #endif

@@ -5,13 +5,16 @@ EXE = simple_model_loader
 
 all: $(EXE)
 
-$(EXE): main.o Window.o ModelLoader.o Model.o Shader.o
-	$(CXX) $(LDFLAGS) main.o Window.o ModelLoader.o Model.o Shader.o -o $@
+$(EXE): main.o Window.o Camera.o ModelLoader.o Model.o Shader.o
+	$(CXX) $(LDFLAGS) main.o Window.o Camera.o ModelLoader.o Model.o Shader.o -o $@
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 Window.o: Window.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+Camera.o: Camera.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 ModelLoader.o: ModelLoader.cpp
