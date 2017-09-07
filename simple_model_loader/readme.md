@@ -1,4 +1,4 @@
-## simple_model_loader (work in progress)
+## simple_model_loader
 
 The purpose of this project is to create a simple 3D model loader that will read in our own custom file type (.MODEL) that will contain the vertex and element data that defines our models.
 
