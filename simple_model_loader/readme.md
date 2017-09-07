@@ -17,4 +17,4 @@ e 1 2 3
 
 To build this project there is an included Makefile within the src folder, though you'll probably have to update the compilation and linking flags (CXX, CXXFLAGS, LDFLAGS) to reference the dependencies on OpenGL, GLFW and GLM.
 
-![alt text](img/SimpleModelLoader.png | width=600)
+![](img/SimpleModelLoader.png)
