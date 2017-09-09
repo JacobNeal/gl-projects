@@ -1,0 +1,78 @@
+----------------BEGIN LOG OUTPUT----------------
+ModelLoader.cpp(8)::load:                       Loading selectionCube.MODEL
+Shader.cpp(32)::load:                           Compiled vertex shader...
+Shader.cpp(49)::load:                           Compiled fragment shader...
+Shader.cpp(67)::load:                           Linked shaders into shader program.
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,0.000000,-3.000000)
+ModelLoader.cpp(8)::load:                       Loading cube.MODEL
+Shader.cpp(32)::load:                           Compiled vertex shader...
+Shader.cpp(49)::load:                           Compiled fragment shader...
+Shader.cpp(67)::load:                           Linked shaders into shader program.
+Editor.cpp(206)::mouseButtonCallback:           Added new cube
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,0.000000,-3.000000)
+ModelLoader.cpp(8)::load:                       Loading cube.MODEL
+Shader.cpp(32)::load:                           Compiled vertex shader...
+Shader.cpp(49)::load:                           Compiled fragment shader...
+Shader.cpp(67)::load:                           Linked shaders into shader program.
+Editor.cpp(206)::mouseButtonCallback:           Added new cube
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,0.000000,-3.000000)
+ModelLoader.cpp(8)::load:                       Loading cube.MODEL
+Shader.cpp(32)::load:                           Compiled vertex shader...
+Shader.cpp(49)::load:                           Compiled fragment shader...
+Shader.cpp(67)::load:                           Linked shaders into shader program.
+Editor.cpp(206)::mouseButtonCallback:           Added new cube
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-0.000000,0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-0.000000,1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-0.000000,0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-1.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-3.000000,0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-3.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,-0.000000,-0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-2.000000,-1.000000,-0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-1.000000,0.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-1.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-1.000000,-0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-0.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (-0.000000,-0.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,2.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,2.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,0.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-3.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-1.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (1.000000,-1.000000,-2.000000)
+Editor.cpp(155)::move:                          Updating selection cube position to: (0.000000,-1.000000,-2.000000)
+-----------------END LOG OUTPUT-----------------

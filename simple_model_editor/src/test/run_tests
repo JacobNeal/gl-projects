@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "--------------------CLEANING TEST BUILD--------------------"
+make clean
+
+echo "\n\n----------------------BUILDING TESTS-----------------------"
+make
+
+echo "\n\n-----------------------RUNNING TESTS-----------------------"
+./test
+
+echo "\n\n-------------------------CLEANING--------------------------"
+make clean

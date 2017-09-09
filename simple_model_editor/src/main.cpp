@@ -3,32 +3,23 @@
 
 #include "ModelLoader.hpp"
 #include "Model.hpp"
-#include "Window.hpp"
+#include "Editor.hpp"
 #include "Logger.hpp"
 
 LOGGER_DECL
 
 int main()
 {
-    Window window("Simple Model Loader", 800, 640);
+    Editor editor("Simple Model Editor", 800, 640);
 
     ModelLoader modelLoader;
 
-    Model * model = modelLoader.load("cube.MODEL");
-
-    while (!window.isDone())
+    while (!editor.isDone())
     {
-        window.beginDraw();
-
-        window.update();
-
-        window.draw(model);
-
-        window.endDraw();
+        editor.beginDraw();
+        editor.update();
+        editor.endDraw();
     }
-
-    // Clean up after the ModelLoader
-    delete model;
 
     std::cout << LOGGER;
 
@@ -37,7 +28,6 @@ int main()
     if (logFile.is_open())
     {
         logFile << LOGGER;
-
         logFile.close();
     }
 
